@@ -13,9 +13,12 @@ Five points:<br/>
 
 On the security side:<br/>
 - It was a question about security and first thing first you should go from domain or IPv4 address to normalized base 10 IPv4 address. And IPv6 addresses.
-- Then you should identify any private IPv4, that should include the one of your server, "127", "192.168", "176" and so on.
+- Then you should identify any private IPv4, that should include the one of your server, starting with "127", "192.168", "176" and so on.
 - Same for IPv6 addresses
-- No regexp needed, in every case over 99 it's unambiguous, elsewhere add a point. Just string start with...
+- No regexp needed in fact with base 10 normalized IPv4 adresses. Waste of time, CPU ressource, memory, for nothing!
 
 This experience motivated me to create Reggie, a tool to write regexp, and also enable me to eventually answer this problem in decimal, octal and hexadecimal and with different IPv4 addresses notations for 127.0.0.1/8.
 And thus prove it is incredibly complex and as often for regexp a sink hole.
+
+Second funny goal: create an email validation regexp respecting RFC and its unit tests.
+And yes _@2130706433 is a perfectly valid email address.
