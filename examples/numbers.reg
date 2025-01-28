@@ -1,0 +1,5 @@
+# How to regexp detect numbers
+
+StringStart
+  Number.range(0, 255)
+StringEnd

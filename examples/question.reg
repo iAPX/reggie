@@ -1,0 +1,5 @@
+# How to represent localhost non-normalized IP addresses range?
+
+StringStart
+  IP.range("127.0.0.1/8")
+StringEnd
