@@ -16,6 +16,8 @@ class GroupNode(BaseNode):
         output = indent_line("Group " + option, indent)
         for node in self.nodes:
             output += node.generate_code(indent + 1)
+        output += indent_line("EndGroup", indent)
+        output += "\n"
 
         # For cleanliness we add an empty line
         # output += "\n"

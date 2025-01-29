@@ -14,12 +14,12 @@ class EitherNode(BaseNode):
 
     # Returns the pseudo-language code corresponding to the node and its sub-nodes
     def generate_code(self, indent: int = 0) -> str:
-        output = "\n"
+        output = ""
         for sub_nodes in self.nodes:
             output += indent_line("Either", indent)
             for sub_node in sub_nodes:
                 output += sub_node.generate_code(indent + 1)
-        output += indent_line("EitherEnd", indent)
+        output += indent_line("EndEither", indent)
         output += "\n"
 
         return output

@@ -18,6 +18,8 @@ class OccurencesNode(BaseNode):
         max_output = ".." + str(self.max_occurences) if self.max_occurences is not None else "+"
         output = indent_line("Occurences " + str(self.min_occurences) + max_output, indent)
         output += self.node.generate_code(indent + 1)
+        output += indent_line("EndOccurences", indent)
+        output += "\n"
         return output
     
     # Returns the regexp corresponding to the node and its sub-nodes

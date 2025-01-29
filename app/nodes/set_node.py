@@ -6,7 +6,7 @@ from ..helpers.helper_indent import indent_line
 
 class SetNode(BaseNode):
     chars : list[str] = []
-    invert : bool = False
+    except_chars: list[str] = []
 
     def __init__(self, chars: list[str], except_chars: list[str]):
         self.chars = chars

@@ -11,17 +11,24 @@ Should be in the end of the list of parsers!
 
 
 def parse(regexp: str, nodes: list[BaseNode]) -> str:
-    chars = regexp[0]
+
+    def get_next_char(regexp: str) -> tuple[str, str]:
+        chars = regexp[0]
+        if chars == "\\":
+            chars = regexp[:2]
+            regexp = regexp[2:]
+            if chars == "\\x":
+                chars += regexp[:2]
+                regexp = regexp[2:]
+        else:
+            regexp = regexp[1:]
+        return chars, regexp
 
     # These characters are prohibited
-    if chars in [")", "|"]:
+    if regexp[0] in [")", "|"]:
         return regexp
     
-    if chars == "\\":
-        chars = regexp[:2]
-        regexp = regexp[2:]
-    else:
-        regexp = regexp[1:]
+    chars, regexp = get_next_char(regexp)
 
     if len(nodes) > 0 and isinstance(nodes[-1], LiteralNode):
         print("Add char to literal node")
